@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Danny Peter | Tech help for Poconos businesses</title>
+<meta name="description" content="Danny Peter handles the tech for local businesses in the Poconos: websites, showing up on Google, leads, and the odd jobs in between.">
+<link rel="canonical" href="https://dannypeter.com/">
+<meta name="theme-color" content="#F2F4F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111816" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dannypeter.com/">
+<meta property="og:site_name" content="Danny Peter">
+<meta property="og:title" content="Hi, I'm Danny.">
+<meta property="og:description" content="Tech help for local businesses in the Poconos. Websites, Google, leads and the odd jobs in between.">
+<meta property="og:image" content="https://dannypeter.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Danny Peter, smiling, next to the words Hi, I'm Danny.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hi, I'm Danny.">
+<meta name="twitter:description" content="Tech help for local businesses in the Poconos.">
+<meta name="twitter:image" content="https://dannypeter.com/og.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm column on fog paper; the work reads like hardware-store job tags; a painted trail blaze (Pocono hiking trails) marks each section. */
+:root {
+  --paper: #F2F4F1;
+  --card: #FBFCFA;
+  --ink: #17221E;
+  --muted: #55615C;
+  --line: #D3DAD5;
+  --blaze: #C2410C;
+  --on-blaze: #FFFFFF;
+  --todo-bg: #FDF1E9;
+
+  --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: clamp(1.6rem, 3.2vw, 2.2rem);
+  --step-3: clamp(2.8rem, 8vw, 5.2rem);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111816; --card: #18211E; --ink: #E7EDE9; --muted: #9AA8A2;
+    --line: #2B3632; --blaze: #FF8A4C; --on-blaze: #1A0E06; --todo-bg: #2A1C14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111816; --card: #18211E; --ink: #E7EDE9; --muted: #9AA8A2;
+  --line: #2B3632; --blaze: #FF8A4C; --on-blaze: #1A0E06; --todo-bg: #2A1C14;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1060px; margin: 0 auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blaze); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h2 { font-size: var(--step-2); font-weight: 800; font-variation-settings: "wdth" 108; line-height: 1.1; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 750; font-variation-settings: "wdth" 104; line-height: 1.2; }
+p { margin: 0; max-width: 62ch; }
+
+.label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.blaze {
+  display: inline-block; width: 9px; height: 17px; flex: none;
+  background: var(--blaze); border-radius: 2px; transform: skewY(-6deg);
+}
+
+.todo {
+  font-family: var(--mono); font-size: 0.85em; font-style: normal;
+  background: var(--todo-bg); color: var(--blaze);
+  border: 1px dashed var(--blaze); border-radius: 6px; padding: 1px 6px;
+}
+
+section { padding-block: clamp(48px, 8vw, 88px); border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 12px; margin-bottom: 32px; }
+.section-head p { color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: clamp(40px, 9vw, 104px) clamp(48px, 8vw, 88px); border-top: 0; }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px); align-items: end;
+}
+.hero-text { display: grid; gap: 22px; min-width: 0; }
+.hero h1 {
+  font-size: var(--step-3); font-weight: 850; font-variation-settings: "wdth" 116;
+  line-height: 0.95; letter-spacing: -0.025em;
+}
+.hero h1 .name { color: var(--blaze); }
+.lede { font-size: var(--step-1); line-height: 1.5; max-width: 34ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--display); font-weight: 750; font-variation-settings: "wdth" 104;
+  font-size: 1.05rem; text-decoration: none;
+  padding: 13px 20px; border-radius: 999px; border: 2px solid var(--ink);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.btn-primary { background: var(--blaze); border-color: var(--blaze); color: var(--on-blaze); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn:hover { transform: translateY(-1px); }
+.referral { color: var(--muted); font-size: var(--step--1); }
+
+.photo {
+  display: block; aspect-ratio: 4 / 5; max-width: 100%; width: 100%; height: auto;
+  object-fit: cover; object-position: 50% 30%;
+  border-radius: var(--radius); background: var(--line);
+}
+
+/* Work */
+.jobs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.job {
+  position: relative; display: grid; gap: 16px; align-content: start;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 24px 24px; min-width: 0;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.job::before { /* the punched hole of a job tag */
+  content: ""; position: absolute; top: 16px; right: 18px; width: 12px; height: 12px;
+  border-radius: 50%; border: 1.5px solid var(--line); background: var(--paper);
+}
+.job:hover { transform: translateY(-2px); border-color: var(--muted); }
+.job .meta { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.job .kind { color: var(--muted); font-size: var(--step--1); margin-top: 2px; }
+.job .did { max-width: 58ch; }
+.figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; border-top: 1px dashed var(--line); padding-top: 16px; }
+.fig { display: grid; gap: 2px; min-width: 0; }
+.fig b {
+  font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 100;
+  font-size: 1.6rem; line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.fig span { color: var(--muted); font-size: var(--step--1); line-height: 1.4; }
+.visit { font-family: var(--mono); font-size: 0.9rem; font-weight: 500; text-decoration: none; color: var(--blaze); justify-self: start; }
+.visit:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.job.lead { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 40px; }
+.job.lead .lead-text { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.job.lead .figures { border-top: 0; padding-top: 0; align-content: center; grid-template-columns: 1fr; gap: 20px; border-left: 1px dashed var(--line); padding-left: 32px; }
+.job.lead .fig b { font-size: clamp(2rem, 4.5vw, 3rem); color: var(--blaze); }
+
+.small-jobs { margin-top: 28px; display: grid; gap: 10px; }
+.small-jobs ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.small-jobs li { display: flex; gap: 12px; align-items: baseline; }
+.small-jobs li::before { content: ""; width: 8px; height: 2px; background: var(--blaze); flex: none; transform: translateY(-4px); }
+
+/* Reviews */
+.review { margin: 0; display: grid; gap: 8px; border-top: 1px dashed var(--line); padding-top: 16px; }
+.review p { font-family: var(--display); font-weight: 650; font-variation-settings: "wdth" 100; font-size: 1.2rem; line-height: 1.35; }
+cite { font-style: normal; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--muted); }
+.voice-section { padding-block: clamp(40px, 7vw, 72px); }
+.voice { margin: 0 auto; max-width: 820px; display: grid; gap: 16px; text-align: left; border-left: 6px solid var(--blaze); padding-left: clamp(18px, 3vw, 32px); }
+.voice p { font-family: var(--display); font-weight: 750; font-variation-settings: "wdth" 106; font-size: clamp(1.5rem, 3.6vw, 2.3rem); line-height: 1.2; letter-spacing: -0.01em; max-width: none; }
+
+.job.lead .fedi-review { border-top: 0; padding-top: 0; border-left: 1px dashed var(--line); padding-left: 32px; align-content: center; }
+.job.lead .fedi-review p { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+@media (max-width: 760px) {
+  .job.lead .fedi-review { border-left: 0; padding-left: 0; border-top: 1px dashed var(--line); padding-top: 16px; }
+}
+
+.sites { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.sites li { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: 16px; padding-block: 10px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.sites a, .sites .site-name { font-family: var(--mono); font-size: 0.88rem; font-weight: 500; color: var(--blaze); text-decoration: none; overflow-wrap: anywhere; }
+.sites .site-name { color: var(--ink); }
+.sites a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.sites li > span:last-child { color: var(--muted); font-size: 0.98rem; }
+.also { color: var(--muted); }
+@media (max-width: 760px) { .sites li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* About */
+.about-body p { font-size: var(--step-1); line-height: 1.5; max-width: 52ch; }
+
+/* Services */
+.services { margin: 0; display: grid; border-top: 1px solid var(--line); }
+.service { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.service dt { font-family: var(--display); font-weight: 750; font-variation-settings: "wdth" 104; font-size: 1.15rem; }
+.service dd { margin: 0; color: var(--muted); }
+
+/* Ownership band */
+.own { background: var(--ink); color: var(--paper); border-radius: 14px; padding: clamp(28px, 5vw, 56px); display: grid; gap: 16px; }
+.own .label { color: var(--paper); opacity: 0.75; }
+.own h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-variation-settings: "wdth" 114; }
+.own p { font-size: var(--step-1); line-height: 1.5; max-width: 44ch; opacity: 0.9; }
+.own-section { border-top: 0; padding-block: 0; }
+.own .own-how { font-family: var(--mono); font-size: 0.9rem; line-height: 1.6; opacity: 0.75; max-width: 60ch; }
+
+/* Steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 3px solid var(--ink); min-width: 0; }
+.steps li::before { content: counter(step); font-family: var(--mono); font-size: 0.85rem; color: var(--blaze); font-weight: 500; }
+.steps h3 { font-size: 1.15rem; }
+.steps p { color: var(--muted); font-size: 0.98rem; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+.contact h2 { font-size: var(--step-3); font-variation-settings: "wdth" 116; font-weight: 850; line-height: 0.95; letter-spacing: -0.02em; }
+.contact-lines { display: grid; gap: 14px; min-width: 0; }
+.line { display: grid; gap: 4px; padding-bottom: 14px; border-bottom: 1px solid var(--line); min-width: 0; }
+.line .value { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--display); font-weight: 750; font-variation-settings: "wdth" 104; font-size: clamp(1.25rem, 3vw, 1.6rem); overflow-wrap: anywhere; }
+.line .value a { text-decoration: none; }
+.copy {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em;
+  background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer;
+}
+.copy:hover { border-color: var(--ink); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--muted); font-size: var(--step--1); }
+footer a { color: var(--ink); text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .hero-grid { grid-template-columns: 1fr; align-items: start; }
+  .photo { order: -1; width: 128px; aspect-ratio: 1; border-radius: 50%; object-position: 50% 35%; }
+  .jobs { grid-template-columns: 1fr; }
+  .job.lead { grid-template-columns: 1fr; row-gap: 16px; }
+  .job.lead .figures { border-left: 0; padding-left: 0; border-top: 1px dashed var(--line); padding-top: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .service { grid-template-columns: 1fr; gap: 4px; }
+  .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .steps { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .job { transition: none; }
+  .btn:hover, .job:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="label"><span class="blaze" aria-hidden="true"></span>Tech help in the Poconos</span>
+        <h1>Hi, I'm <span class="name">Danny.</span></h1>
+        <p class="lede">I handle the tech for local businesses. Websites, showing up on Google, the forms and emails that bring customers in, and the odd jobs in between.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Text Danny</a>
+          <a class="btn btn-ghost" href="#work">See the work ↓</a>
+        </div>
+        <p class="referral">Most of my clients started as neighbors.</p>
+      </div>
+      <img class="photo" src="/danny.jpg" fetchpriority="high" alt="Danny Peter, smiling" width="640" height="800">
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="section-head">
+      <span class="label"><span class="blaze" aria-hidden="true"></span>Danny built this</span>
+      <h2>Work you can go look at</h2>
+    </div>
+
+    <div class="jobs">
+      <article class="job lead">
+        <div class="lead-text">
+          <div>
+            <div class="meta">Ongoing since March 2026</div>
+            <h3>Poconos House Cleaning</h3>
+            <div class="kind">Vacation rental turnover cleaning · Poconos</div>
+          </div>
+          <p class="did">In February they didn't show up on Google at all. I rebuilt their site around vacation rental turnovers, and every week since I've worked their search results, Google profile and lead form from the data. No paid ads.</p>
+          <a class="visit" href="https://poconoshousecleaning.com" target="_blank" rel="noopener">poconoshousecleaning.com ↗</a>
+        </div>
+        <div class="figures">
+          <div class="fig"><b>35</b><span>real customer leads in six months, from zero</span></div>
+          <div class="fig"><b>#1</b><span>on Google for “cleaning company near me” in their area</span></div>
+          <div class="fig"><b>4×</b><span>more people finding them in Google search</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div>
+          <div class="meta">Website · Domain · Hosting</div>
+          <h3>Pocono Santa</h3>
+          <div class="kind">Real-bearded Santa · Stroudsburg</div>
+        </div>
+        <p class="did">He had website quotes he couldn't make sense of. I built him a site he understands and owns outright: his domain, his hosting, his code.</p>
+        <div class="figures">
+          <div class="fig"><b>$1,000+</b><span>saved up front</span></div>
+          <div class="fig"><b>$500+</b><span>saved every year</span></div>
+        </div>
+        <a class="visit" href="https://poconosanta.com" target="_blank" rel="noopener">poconosanta.com ↗</a>
+      </article>
+
+      <article class="job">
+        <div>
+          <div class="meta">Website · Brand · Advice</div>
+          <h3>Omayra Bites</h3>
+          <div class="kind">Puerto Rican food truck · Stroudsburg</div>
+        </div>
+        <p class="did">Built her site from scratch in English and Spanish, set the look and direction of the brand, and met with her in person for planning and advice.</p>
+        <blockquote class="review">
+          <p>“He is patient and is a great listener. He uses my ideas and makes magic.”</p>
+          <cite>Omayra Ortiz, owner · ★★★★★ on Google</cite>
+        </blockquote>
+        <a class="visit" href="https://omayrabites.com" target="_blank" rel="noopener">omayrabites.com ↗</a>
+      </article>
+
+      <article class="job lead wide-quote">
+        <div class="lead-text">
+          <div>
+            <div class="meta">Advisory · Marketing · Websites · Search</div>
+            <h3>Fedi</h3>
+            <div class="kind">Bitcoin app company</div>
+          </div>
+          <p class="did">Their marketing and web partner, from strategy down to the code. I built and edited multiple websites, set up the development pipelines behind them, and handled search and AI-answer optimization, data analysis and a lot of advising.</p>
+          <a class="visit" href="https://www.fedi.xyz" target="_blank" rel="noopener">fedi.xyz ↗</a>
+        </div>
+        <blockquote class="review fedi-review">
+          <p>“Daniel not only has the technical skill but strong marketing instincts. Smart. Thoughtful. Responsive. Solutions-oriented.”</p>
+          <cite>Phil Gomes, Fedi · ★★★★★ on Google</cite>
+        </blockquote>
+      </article>
+    </div>
+
+    <div class="small-jobs">
+      <span class="label">And smaller jobs</span>
+      <ul>
+        <li>For a neighbor: turned 144 handwritten pages into a typeset, 26,000-word novel, edited to match the original.</li>
+      </ul>
+      <p class="referral">Every number on this page is real. Ask the owners.</p>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="section-head">
+      <span class="label"><span class="blaze" aria-hidden="true"></span>What I do</span>
+      <h2>If it plugs in, logs in, or lives online, ask</h2>
+    </div>
+    <dl class="services">
+      <div class="service"><dt>Websites</dt><dd>Fast, cheap to run, easy to update.</dd></div>
+      <div class="service"><dt>Getting found</dt><dd>Google profile, reviews, and Search Console.</dd></div>
+      <div class="service"><dt>Leads</dt><dd>Forms that reach you, and a simple way to track them.</dd></div>
+      <div class="service"><dt>Your look</dt><dd>Colors, logo touch-ups, icons and share images.</dd></div>
+      <div class="service"><dt>Words</dt><dd>Website copy and emails that sound like you.</dd></div>
+      <div class="service"><dt>Keeping it running</dt><dd>Domains, email, hosting and fixes. Text me when it breaks.</dd></div>
+      <div class="service"><dt>Everything else</dt><dd>The odd tech jobs. I use AI to get more done for less.</dd></div>
+    </dl>
+  </section>
+
+  <section class="own-section">
+    <div class="own">
+      <span class="label"><span class="blaze" aria-hidden="true"></span>The one rule</span>
+      <h2>You own everything</h2>
+      <p>Your domain, hosting, code and accounts stay in your name. I run things for you, and you can take all of it elsewhere whenever you want.</p>
+      <p class="own-how">How it works: we talk, agree on a price, I build it, and if you want, I keep it running.</p>
+    </div>
+  </section>
+
+
+  <section class="about">
+    <div class="section-head">
+      <span class="label"><span class="blaze" aria-hidden="true"></span>About me</span>
+      <h2>A little about Danny</h2>
+    </div>
+    <div class="about-body">
+      <p>I've been building on the internet since 2017. I speak English, Russian and Hebrew, and enough Spanish to build Omayra's site in both languages. I work by the rule I grew up with: if you do something, do it right.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Text Danny.</h2>
+      <div class="contact-lines">
+        <div class="line">
+          <span class="label">Text or call</span>
+          <span class="value"><a href="tel:+19143573295">(914) 357-3295</a></span>
+        </div>
+        <div class="line">
+          <span class="label">Email</span>
+          <span class="value"><a href="mailto:danny@dannypeter.com" id="email">danny@dannypeter.com</a><button class="copy" id="copy-email" type="button">Copy</button></span>
+        </div>
+        <p class="referral">Text is fastest. If someone sent you, tell me who.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Danny Peter (Daniel on paper). I also founded <a href="https://fiftysix.tech" target="_blank" rel="noopener">Fiftysix</a>.</span>
+    <span>Services provided through Fiftysix LLC, Pennsylvania · © 2026</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy-email");
+    var email = document.getElementById("email");
+    if (!btn || !email) return;
+    btn.addEventListener("click", function () {
+      var text = email.textContent.trim();
+      function selectFallback() {
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(email);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          btn.textContent = "Selected";
+        } catch (e) {}
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = "Copied";
+          setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+        }, selectFallback);
+      } catch (e) { selectFallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
